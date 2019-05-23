@@ -17,17 +17,18 @@ class Player:
     def change_jers_num(self, jers):
         self.jersey_num = jers
 
+
     def injured(self):
-        # resets all player skills to false
+        #resets all player skills to false
         for skill in self.skills:
             self.skills[skill] = False
 
 
-player1 = Player('Winston', 40)
-player2 = Player('Chris', 7)
-player3 = Player("Sage", 17)
 
-player2.get_player()
-player2.injured()
-player2.get_player()
 
+name = input("Enter player name: ")
+num = input("Enter player number: ")
+
+player1 = Player(name, num)
+
+player1.get_player()
