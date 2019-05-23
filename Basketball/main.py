@@ -6,6 +6,7 @@ class Player:
             'shooting': True,
             'dribbling': True,
             'dunking': True}
+        self.total_rest_time = 0
 
     def set_skill(self, skill):
         self.skills[skill] = True
@@ -17,11 +18,17 @@ class Player:
     def change_jers_num(self, jers):
         self.jersey_num = jers
 
-
     def injured(self):
         #resets all player skills to false
         for skill in self.skills:
             self.skills[skill] = False
+
+    def rest(self, duration):
+        # rests player for duration of time (minutes)
+        print('{} is resting for {} minutes'.format(self.name, duration))
+        self.total_rest_time += duration
+        print('{} is has now rested for {} minutes'.format(self.name,
+                                                           self.total_rest_time))
 
 
 class Team:
@@ -46,8 +53,6 @@ class Team:
         print(msg.format(self.name, self.member_names))
 
 
-
-
 # have user define number of players
 team_members = []
 number_of_players = int(input('Enter number of players: '))
@@ -62,15 +67,7 @@ for n in range(number_of_players):
 team1 = Team("cavs", team_members)
 
 team1.get_team()
-'''
 
-practiceDictionary = {
-    "winston": 22,
-    'chris': 24,
-    'sage': 16
-}
+# TODO: Winston, integrate this with player and use the new features in your RPG.
+minutes = input('Enter a rest period (minutes): ')
 
-if 'Winston' in practiceDictionary:
-    print(practiceDictionary)
-else:
-    print("its not in there")'''
