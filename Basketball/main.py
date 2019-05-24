@@ -1,3 +1,5 @@
+import random
+
 class Player:
     def __init__(self, name, jersey_num):
         self.name = name
@@ -7,13 +9,29 @@ class Player:
             'dribbling': True,
             'dunking': True}
         self.total_rest_time = 0
+        self.points = 0
+        self.last_shot_attempt = None
+
+    # player scoring
+    def score(self):
+        shot = bool(random.getrandbits(1)) # random boolean "true" or "false"
+        self.last_shot_attempt = shot
+        if shot: # if true add points
+            self.points += 2
+
 
     def set_skill(self, skill):
         self.skills[skill] = True
 
     def get_player(self):
-        msg = 'name: {}\nnumber: {}\nskills: {}'
-        print(msg.format(self.name, self.jersey_num, self.skills))
+        msg = ('name: {}'
+               '\nnumber: {}'
+               '\nskills: {}'
+               '\npoints: {}'
+               '\nlast shot attempt: {}')
+        print(msg.format(
+            self.name, self.jersey_num, self.skills, self.points,
+            self.last_shot_attempt))
 
     def change_jers_num(self, jers):
         self.jersey_num = jers
@@ -65,9 +83,12 @@ for n in range(number_of_players):
     team_members.append(player)
 
 team1 = Team("cavs", team_members)
-
+'''
 team1.get_team()
-
-# TODO: Winston, integrate this with player and use the new features in your RPG.
+'''
+'''# TODO: Winston, integrate this with player and use the new features in your RPG.
 minutes = input('Enter a rest period (minutes): ')
+'''
 
+team_members[0].score()
+team_members[0].get_player()

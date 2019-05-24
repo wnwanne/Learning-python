@@ -23,7 +23,11 @@ def who_wins(scores):
         print(str(team_names[1]) + " Wins!")
 
 
-score1 = 10
+
+
+
+
+'''score1 = 10
 score2 = 12
 team_name1 = 'cavs'
 team_name2 = 'celtics'
@@ -34,5 +38,6 @@ scores = {
 }
 
 print(diff(score1, score2))
-who_wins(scores)
+who_wins(scores)'''
 
+score()
